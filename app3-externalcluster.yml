@@ -1,0 +1,19 @@
+#app2-externalcluster.yml 
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-childapp-app4-externalcluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/anandambitionv2/customer-1-repo.git
+    targetRevision: main
+    path: .
+  destination:
+    server: https://aks-external-cluster-hlaekz7t.hcp.centralindia.azmk8s.io
+    namespace: customer-1-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
