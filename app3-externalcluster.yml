@@ -11,7 +11,7 @@ spec:
     targetRevision: main
     path: .
   destination:
-    server: https://aksclusterargocd-oyrl8930.hcp.centralindia.azmk8s.io
+    server: https://aks-external-cluster-hlaekz7t.hcp.centralindia.azmk8s.io
     namespace: customer-1-app
   syncPolicy:
     automated:
