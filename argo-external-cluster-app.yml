@@ -7,13 +7,13 @@ metadata:
 spec:
   project: default
 
-  sources:
-    - repoURL: https://argoproj.github.io/argo-helm
-      chart: argo-cd
-      targetRevision: "9.3.4"
-      helm:
-        releaseName: myargocd-release
-        
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo-cd
+    targetRevision: "9.3.4"
+    helm:
+      releaseName: myargocd-release
+
   destination:
     server: https://aks-external-cluster-hlaekz7t.hcp.centralindia.azmk8s.io
     namespace: argocd
@@ -22,3 +22,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
