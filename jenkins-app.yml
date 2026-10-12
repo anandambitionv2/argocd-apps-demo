@@ -4,15 +4,24 @@ kind: Application
 metadata:
   name: jenkins-app
   namespace: argocd
+
 spec:
   project: default
 
-  source:
-    repoURL: https://charts.jenkins.io
-    chart: jenkins
-    targetRevision: "5.9.68"
-    helm:
-      releaseName: jenkins-release
+  sources:
+    # Jenkins Helm chart
+    - repoURL: https://charts.jenkins.io
+      chart: jenkins
+      targetRevision: "5.9.68"
+      helm:
+        releaseName: jenkins-release
+        valueFiles:
+          - $jenkinsvalues/mycustomvalues/override-values.yaml
+
+    # Git repository containing values.yaml
+    - repoURL: https://github.com/anandambitionv2/jenkins-config.git
+      targetRevision: main
+      ref: jenkinsvalues
 
   destination:
     server: https://aks-external-cluster-hlaekz7t.hcp.centralindia.azmk8s.io
