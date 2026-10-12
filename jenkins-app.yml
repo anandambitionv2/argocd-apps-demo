@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://charts.jenkins.io
     chart: jenkins
-    targetRevision: "9.3.4"
+    targetRevision: "5.9.68"
     helm:
       releaseName: jenkins-release
 
