@@ -12,7 +12,7 @@ spec:
     chart: jenkins
     targetRevision: "5.9.68"
     helm:
-      releaseName: jenkins-release
+      releaseName: jenkinshelmbased
 
   destination:
     server: https://aks-external-cluster-hlaekz7t.hcp.centralindia.azmk8s.io
